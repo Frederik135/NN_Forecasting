@@ -1,0 +1,28 @@
+
+[*********************100%%**********************]  1 of 1 completed
+Epoch 0 | Training Loss: 0.20224812345339968 | Validation Loss: 0.14722180260079248
+Epoch 10 | Training Loss: 0.0008816683886699913 | Validation Loss: 0.008544875130090597
+Epoch 20 | Training Loss: 0.0006474471125262358 | Validation Loss: 0.005583756915127326
+Epoch 30 | Training Loss: 0.0005599864665513181 | Validation Loss: 0.0026171004023386297
+Epoch 40 | Training Loss: 0.0005042397286969288 | Validation Loss: 0.001953889796693277
+Epoch 50 | Training Loss: 0.0004421235451917272 | Validation Loss: 0.0017858465902723505
+Epoch 60 | Training Loss: 0.000422717114681156 | Validation Loss: 0.001359011826155308
+Epoch 70 | Training Loss: 0.0004419761777104146 | Validation Loss: 0.0011176101387328735
+Epoch 80 | Training Loss: 0.00037364970423233763 | Validation Loss: 0.0011705016549967695
+Epoch 90 | Training Loss: 0.0003739376549708174 | Validation Loss: 0.0010982181224140472
+Epoch 100 | Training Loss: 0.00038067165840200486 | Validation Loss: 0.0010513179617451637
+Epoch 110 | Training Loss: 0.0003665385891980367 | Validation Loss: 0.0010748387732227066
+Epoch 120 | Training Loss: 0.00036073334247164356 | Validation Loss: 0.001076980671704015
+Epoch 130 | Training Loss: 0.00035671730221211974 | Validation Loss: 0.0010911520205679284
+Epoch 140 | Training Loss: 0.00034961543049037035 | Validation Loss: 0.0011293129292815657
+Epoch 150 | Training Loss: 0.00034791801061618134 | Validation Loss: 0.001144606226651896
+Epoch 160 | Training Loss: 0.00034213277543434134 | Validation Loss: 0.001167984159630058
+Epoch 170 | Training Loss: 0.0003411075391947331 | Validation Loss: 0.001171890189912769
+Epoch 180 | Training Loss: 0.0003382235156634663 | Validation Loss: 0.0011892564044891124
+Epoch 190 | Training Loss: 0.00033428007797435083 | Validation Loss: 0.0012147780907980632
+C:\Users\janfr\AppData\Local\Temp\ipykernel_18276\1219080596.py:117: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(dates, rotation=45)
+MSE: 0.0063357406151293445
+RMSE: 0.07959736562933063
+MAE: 0.06899068406468184
+R-squared: 0.8613867798546352

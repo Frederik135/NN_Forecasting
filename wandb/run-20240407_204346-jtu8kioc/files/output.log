@@ -1,0 +1,16 @@
+
+[*********************100%%**********************]  1 of 1 completed
+Epoch 0 | Training Loss: 0.3476239062050202 | Validation Loss: 2.7394086917241416
+Epoch 10 | Training Loss: 0.015254699381936613 | Validation Loss: 0.25602779413263005
+Epoch 20 | Training Loss: 0.0037403733043295992 | Validation Loss: 0.14976216107606888
+Epoch 30 | Training Loss: 0.002488999766228517 | Validation Loss: 0.1396751549715797
+Epoch 40 | Training Loss: 0.00147762751657865 | Validation Loss: 0.13178671896457672
+Epoch 50 | Training Loss: 0.0015492565174402746 | Validation Loss: 0.11552139433721702
+Epoch 60 | Training Loss: 0.0019326238331511074 | Validation Loss: 0.09230159533520539
+Epoch 70 | Training Loss: 0.0029843193963946155 | Validation Loss: 0.06596105732023716
+Epoch 80 | Training Loss: 0.005840741626040351 | Validation Loss: 0.01712840950737397
+Epoch 90 | Training Loss: 0.002359442176308827 | Validation Loss: 0.018371601589024067
+Epoch 100 | Training Loss: 0.0008003881854771558 | Validation Loss: 0.02420078474096954
+Epoch 110 | Training Loss: 0.0005550972396122233 | Validation Loss: 0.03273977370311817
+Epoch 120 | Training Loss: 0.0004301408841911325 | Validation Loss: 0.03820646833628416
+Epoch 130 | Training Loss: 0.0014760612344844048 | Validation Loss: 0.017597399807224672
