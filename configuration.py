@@ -5,7 +5,7 @@ from models import RNNModel, LSTMModel, GRUModel
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-stock_ticker = "GOOGL"
+stock_ticker = "KO"
 ticker = yf.Ticker(stock_ticker)
 company_name = ticker.info.get('longName', 'Company name not found')
 
