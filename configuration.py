@@ -21,7 +21,7 @@ model_config = {
     "dropout_prob": dropout_prob        # Dropout probability (usually between 0.2 and 0.5; only apply when using >= 2 layers)
 }
 
-model = LSTMModel(**model_config).to(device)     # Select Deep Learning model
+model = RNNModel(**model_config).to(device)     # Select Deep Learning model
 
 architecture = str(model).split("(")[0].replace("Model", " ")       # Selection of the RNN model
 seq_length = 13                 # Number of time steps

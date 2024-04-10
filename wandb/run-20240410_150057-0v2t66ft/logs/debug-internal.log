@@ -1,0 +1,143 @@
+2024-04-10 15:00:57,088 INFO    StreamThr :3035 [internal.py:wandb_internal():86] W&B internal server running at pid: 3035, started at: 2024-04-10 15:00:57.087983
+2024-04-10 15:00:57,088 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status
+2024-04-10 15:00:57,091 INFO    WriterThread:3035 [datastore.py:open_for_write():87] open: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/run-0v2t66ft.wandb
+2024-04-10 15:00:57,092 DEBUG   SenderThread:3035 [sender.py:send():379] send: header
+2024-04-10 15:00:57,114 DEBUG   SenderThread:3035 [sender.py:send():379] send: run
+2024-04-10 15:00:57,757 INFO    SenderThread:3035 [dir_watcher.py:__init__():211] watching files in: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files
+2024-04-10 15:00:57,757 INFO    SenderThread:3035 [sender.py:_start_run_threads():1124] run started: 0v2t66ft with start time 1712754057.087796
+2024-04-10 15:00:57,768 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: check_version
+2024-04-10 15:00:57,768 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: check_version
+2024-04-10 15:00:58,067 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: run_start
+2024-04-10 15:00:58,068 DEBUG   HandlerThread:3035 [system_info.py:__init__():26] System info init
+2024-04-10 15:00:58,068 DEBUG   HandlerThread:3035 [system_info.py:__init__():41] System info init done
+2024-04-10 15:00:58,068 INFO    HandlerThread:3035 [system_monitor.py:start():194] Starting system monitor
+2024-04-10 15:00:58,068 INFO    SystemMonitor:3035 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-10 15:00:58,069 INFO    HandlerThread:3035 [system_monitor.py:probe():214] Collecting system info
+2024-04-10 15:00:58,069 INFO    SystemMonitor:3035 [interfaces.py:start():190] Started cpu monitoring
+2024-04-10 15:00:58,071 DEBUG   HandlerThread:3035 [system_info.py:probe():150] Probing system
+2024-04-10 15:00:58,071 INFO    SystemMonitor:3035 [interfaces.py:start():190] Started disk monitoring
+2024-04-10 15:00:58,072 INFO    SystemMonitor:3035 [interfaces.py:start():190] Started gpuapple monitoring
+2024-04-10 15:00:58,075 INFO    SystemMonitor:3035 [interfaces.py:start():190] Started memory monitoring
+2024-04-10 15:00:58,077 INFO    SystemMonitor:3035 [interfaces.py:start():190] Started network monitoring
+2024-04-10 15:00:58,077 DEBUG   HandlerThread:3035 [system_info.py:_probe_git():135] Probing git
+2024-04-10 15:00:58,099 DEBUG   HandlerThread:3035 [system_info.py:_probe_git():143] Probing git done
+2024-04-10 15:00:58,099 DEBUG   HandlerThread:3035 [system_info.py:probe():198] Probing system done
+2024-04-10 15:00:58,099 DEBUG   HandlerThread:3035 [system_monitor.py:probe():223] {'os': 'macOS-14.4-arm64-arm-64bit', 'python': '3.10.14', 'heartbeatAt': '2024-04-10T13:00:58.071426', 'startedAt': '2024-04-10T13:00:57.081681', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'codePathLocal': None, 'git': {'remote': 'https://github.com/Frederik135/NN_Forecasting.git', 'commit': '894a20fcd6a39dd0a8987f2b57a87d5a5a60b303'}, 'email': 'janfrederikmohr@googlemail.com', 'root': '/Users/frederikmohr/masterarbeit/NN_Forecasting', 'host': 'MacBook-Pro-von-Frederik.local', 'username': 'frederikmohr', 'executable': '/opt/anaconda3/envs/masterarbeit/bin/python', 'cpu_count': 10, 'cpu_count_logical': 10, 'cpu_freq': {'current': 3504, 'min': 702, 'max': 3504}, 'cpu_freq_per_core': [{'current': 3504, 'min': 702, 'max': 3504}], 'disk': {'/': {'total': 460.4317207336426, 'used': 10.119728088378906}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2024-04-10 15:00:58,099 INFO    HandlerThread:3035 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-10 15:00:58,099 INFO    HandlerThread:3035 [system_monitor.py:probe():227] Publishing system info
+2024-04-10 15:00:58,099 DEBUG   HandlerThread:3035 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-04-10 15:00:58,764 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/conda-environment.yaml
+2024-04-10 15:01:00,003 DEBUG   HandlerThread:3035 [system_info.py:_save_conda():222] Saving conda packages done
+2024-04-10 15:01:00,003 INFO    HandlerThread:3035 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-10 15:01:00,004 DEBUG   SenderThread:3035 [sender.py:send():379] send: files
+2024-04-10 15:01:00,004 INFO    SenderThread:3035 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-04-10 15:01:00,065 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: python_packages
+2024-04-10 15:01:00,065 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:01:00,065 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: python_packages
+2024-04-10 15:01:00,065 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:01:00,066 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:01:00,419 DEBUG   SenderThread:3035 [sender.py:send():379] send: telemetry
+2024-04-10 15:01:00,623 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: pause
+2024-04-10 15:01:00,623 INFO    HandlerThread:3035 [handler.py:handle_request_pause():708] stopping system metrics thread
+2024-04-10 15:01:00,623 INFO    HandlerThread:3035 [system_monitor.py:finish():203] Stopping system monitor
+2024-04-10 15:01:00,624 DEBUG   SystemMonitor:3035 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-10 15:01:00,624 INFO    HandlerThread:3035 [interfaces.py:finish():202] Joined cpu monitor
+2024-04-10 15:01:00,624 DEBUG   SystemMonitor:3035 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-04-10 15:01:00,624 DEBUG   SystemMonitor:3035 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-04-10 15:01:00,624 INFO    HandlerThread:3035 [interfaces.py:finish():202] Joined disk monitor
+2024-04-10 15:01:00,624 INFO    HandlerThread:3035 [interfaces.py:finish():202] Joined gpuapple monitor
+2024-04-10 15:01:00,624 INFO    HandlerThread:3035 [interfaces.py:finish():202] Joined memory monitor
+2024-04-10 15:01:00,624 INFO    HandlerThread:3035 [interfaces.py:finish():202] Joined network monitor
+2024-04-10 15:01:00,624 DEBUG   SenderThread:3035 [sender.py:send():379] send: telemetry
+2024-04-10 15:01:00,625 DEBUG   SenderThread:3035 [sender.py:send():379] send: stats
+2024-04-10 15:01:00,723 INFO    wandb-upload_0:3035 [upload_job.py:push():131] Uploaded file /var/folders/72/xqxvrz7s4n7grqqwprj1mrc80000gn/T/tmp8dbliy46wandb/li0tugf9-wandb-metadata.json
+2024-04-10 15:01:00,770 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/conda-environment.yaml
+2024-04-10 15:01:00,770 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/requirements.txt
+2024-04-10 15:01:00,770 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/output.log
+2024-04-10 15:01:00,770 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/wandb-metadata.json
+2024-04-10 15:01:02,631 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:02,779 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/output.log
+2024-04-10 15:01:07,652 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:12,673 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:15,066 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:01:15,067 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:01:15,071 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:01:18,382 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:23,397 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:28,417 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:28,903 INFO    Thread-25 :3035 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/frederikmohr/masterarbeit/NN_Forecasting/wandb/run-20240410_150057-0v2t66ft/files/config.yaml
+2024-04-10 15:01:30,072 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:01:30,072 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:01:30,073 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:01:34,418 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:39,441 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:44,465 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:45,074 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:01:45,076 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:01:45,076 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:01:50,442 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:01:55,463 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:00,077 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:02:00,081 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:02:00,081 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:02:01,346 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:06,367 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:11,386 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:15,081 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:02:15,084 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:02:15,084 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:02:17,285 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:22,303 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:27,319 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:30,084 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:02:30,088 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:02:30,089 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:02:32,376 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:37,397 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:42,410 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:45,088 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:02:45,090 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:02:45,090 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:02:48,330 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:53,352 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:02:58,367 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:00,090 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:03:00,094 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:03:00,095 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:03:03,539 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:08,555 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:13,572 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:15,096 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:03:15,096 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:03:15,097 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:03:19,399 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:24,418 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:29,435 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:30,095 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:03:30,096 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:03:30,100 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:03:34,549 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:39,570 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:44,590 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:45,098 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:03:45,099 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:03:45,102 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:03:50,374 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:03:55,395 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:00,104 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:04:00,104 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:04:00,107 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:04:00,434 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:05,455 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:10,480 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:15,108 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:04:15,109 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:04:15,112 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:04:15,486 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:20,502 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:25,518 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:30,109 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-10 15:04:30,110 DEBUG   SenderThread:3035 [sender.py:send_request():406] send_request: stop_status
+2024-04-10 15:04:30,113 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-10 15:04:31,314 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
+2024-04-10 15:04:36,335 DEBUG   HandlerThread:3035 [handler.py:handle_request():146] handle_request: status_report
