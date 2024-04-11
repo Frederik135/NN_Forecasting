@@ -1,0 +1,12 @@
+  | Name   | Type   | Params
+----------------------------------
+0 | layer1 | Linear | 20
+1 | layer2 | Linear | 11
+----------------------------------
+31        Trainable params
+0         Non-trainable params
+31        Total params
+0.000     Total estimated model params size (MB)
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py:298: The number of training batches (38) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
