@@ -1,0 +1,21 @@
+  | Name      | Type     | Params
+---------------------------------------
+0 | model     | RNNModel | 1.8 K
+1 | criterion | MSELoss  | 0
+---------------------------------------
+1.8 K     Trainable params
+0         Non-trainable params
+1.8 K     Total params
+0.007     Total estimated model params size (MB)
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py:298: The number of training batches (47) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss          0.0005208447109907866
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+`Trainer.fit` stopped: `max_epochs=150` reached.
+Restoring states from the checkpoint path at ./RNN_single_step_forecasts/6qfgi33p/checkpoints/epoch=149-step=7050.ckpt
+Loaded model weights from the checkpoint at ./RNN_single_step_forecasts/6qfgi33p/checkpoints/epoch=149-step=7050.ckpt
+/opt/anaconda3/envs/masterarbeit/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
