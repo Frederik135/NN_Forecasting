@@ -1,0 +1,48 @@
+2024-04-17 21:46:46,250 INFO    StreamThr :10128 [internal.py:wandb_internal():86] W&B internal server running at pid: 10128, started at: 2024-04-17 21:46:46.249568
+2024-04-17 21:46:46,252 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status
+2024-04-17 21:46:46,255 INFO    WriterThread:10128 [datastore.py:open_for_write():87] open: .\wandb\run-20240417_214646-8hb4wrod\run-8hb4wrod.wandb
+2024-04-17 21:46:46,255 DEBUG   SenderThread:10128 [sender.py:send():379] send: header
+2024-04-17 21:46:46,286 DEBUG   SenderThread:10128 [sender.py:send():379] send: run
+2024-04-17 21:46:46,288 INFO    SenderThread:10128 [sender.py:_setup_resume():749] checking resume status for None/RNN_single_step_forecasts/8hb4wrod
+2024-04-17 21:46:47,121 INFO    SenderThread:10128 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20240417_214646-8hb4wrod\files
+2024-04-17 21:46:47,121 INFO    SenderThread:10128 [sender.py:_start_run_threads():1124] run started: 8hb4wrod with start time 1713383206.250569
+2024-04-17 21:46:47,130 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: check_version
+2024-04-17 21:46:47,130 DEBUG   SenderThread:10128 [sender.py:send_request():406] send_request: check_version
+2024-04-17 21:46:47,483 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: run_start
+2024-04-17 21:46:47,505 DEBUG   HandlerThread:10128 [system_info.py:__init__():26] System info init
+2024-04-17 21:46:47,505 DEBUG   HandlerThread:10128 [system_info.py:__init__():41] System info init done
+2024-04-17 21:46:47,505 INFO    HandlerThread:10128 [system_monitor.py:start():194] Starting system monitor
+2024-04-17 21:46:47,505 INFO    SystemMonitor:10128 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-17 21:46:47,505 INFO    HandlerThread:10128 [system_monitor.py:probe():214] Collecting system info
+2024-04-17 21:46:47,505 INFO    SystemMonitor:10128 [interfaces.py:start():190] Started cpu monitoring
+2024-04-17 21:46:47,505 INFO    SystemMonitor:10128 [interfaces.py:start():190] Started disk monitoring
+2024-04-17 21:46:47,505 INFO    SystemMonitor:10128 [interfaces.py:start():190] Started gpu monitoring
+2024-04-17 21:46:47,512 INFO    SystemMonitor:10128 [interfaces.py:start():190] Started memory monitoring
+2024-04-17 21:46:47,518 INFO    SystemMonitor:10128 [interfaces.py:start():190] Started network monitoring
+2024-04-17 21:46:47,519 DEBUG   HandlerThread:10128 [system_info.py:probe():150] Probing system
+2024-04-17 21:46:47,521 DEBUG   HandlerThread:10128 [system_info.py:_probe_git():135] Probing git
+2024-04-17 21:46:47,569 DEBUG   HandlerThread:10128 [system_info.py:_probe_git():143] Probing git done
+2024-04-17 21:46:47,570 DEBUG   HandlerThread:10128 [system_info.py:probe():198] Probing system done
+2024-04-17 21:46:47,570 DEBUG   HandlerThread:10128 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.14', 'heartbeatAt': '2024-04-17T19:46:47.519965', 'startedAt': '2024-04-17T19:46:46.230194', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'codePathLocal': None, 'git': {'remote': 'https://github.com/Frederik135/NN_Forecasting.git', 'commit': '6ecc8ef2c8612b2a9c17467bcb5dc2feb5ef0400'}, 'email': 'janfrederikmohr@googlemail.com', 'root': 'C:/Users/janfr/Documents/python_projects/masterarbeit', 'host': 'RTX_Creative', 'username': 'janfr', 'executable': 'c:\\Users\\janfr\\anaconda3\\envs\\pytorch_3_10\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2496.0, 'min': 0.0, 'max': 2496.0}, 'cpu_freq_per_core': [{'current': 2496.0, 'min': 0.0, 'max': 2496.0}], 'disk': {'/': {'total': 475.78612899780273, 'used': 165.65553665161133}}, 'gpu': 'NVIDIA GeForce RTX 3060 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Ti', 'memory_total': 8589934592}], 'memory': {'total': 15.785968780517578}}
+2024-04-17 21:46:47,570 INFO    HandlerThread:10128 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-17 21:46:47,570 INFO    HandlerThread:10128 [system_monitor.py:probe():227] Publishing system info
+2024-04-17 21:46:47,570 DEBUG   HandlerThread:10128 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-04-17 21:46:48,128 INFO    Thread-16 :10128 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20240417_214646-8hb4wrod\files\conda-environment.yaml
+2024-04-17 21:46:54,918 DEBUG   HandlerThread:10128 [system_info.py:_save_conda():222] Saving conda packages done
+2024-04-17 21:46:54,919 INFO    HandlerThread:10128 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-17 21:46:54,932 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:46:54,932 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: keepalive
+2024-04-17 21:46:54,932 DEBUG   SenderThread:10128 [sender.py:send():379] send: files
+2024-04-17 21:46:54,932 INFO    SenderThread:10128 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-04-17 21:46:55,152 INFO    Thread-16 :10128 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20240417_214646-8hb4wrod\files\conda-environment.yaml
+2024-04-17 21:46:55,152 INFO    Thread-16 :10128 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20240417_214646-8hb4wrod\files\wandb-metadata.json
+2024-04-17 21:46:55,683 INFO    wandb-upload_0:10128 [upload_job.py:push():131] Uploaded file C:\Users\janfr\AppData\Local\Temp\tmp9ukcu78vwandb\885aiqwv-wandb-metadata.json
+2024-04-17 21:46:56,940 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:01,954 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:06,989 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:12,013 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:17,051 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:22,081 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:27,106 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:32,114 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
+2024-04-17 21:47:37,181 DEBUG   HandlerThread:10128 [handler.py:handle_request():146] handle_request: status_report
