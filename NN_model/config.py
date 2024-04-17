@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import yfinance as yf
-from pl_models import RNNModel, LSTMModel, GRUModel
+from models import RNNModel, LSTMModel, GRUModel
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
