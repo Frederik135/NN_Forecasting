@@ -1,0 +1,52 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.10.14",
+    "heartbeatAt": "2024-04-14T14:32:47.716761",
+    "startedAt": "2024-04-14T14:32:46.556164",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/Frederik135/NN_Forecasting.git",
+        "commit": "126d0a6fb6cd5bbd5d91749935f5ea4b8909501e"
+    },
+    "email": "janfrederikmohr@googlemail.com",
+    "root": "C:/Users/janfr/Documents/python_projects/masterarbeit",
+    "host": "RTX_Creative",
+    "username": "janfr",
+    "executable": "c:\\Users\\janfr\\anaconda3\\envs\\pytorch_3_10\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2496.0,
+        "min": 0.0,
+        "max": 2496.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2496.0,
+            "min": 0.0,
+            "max": 2496.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 475.78612899780273,
+            "used": 309.4080009460449
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Ti",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.785968780517578
+    }
+}

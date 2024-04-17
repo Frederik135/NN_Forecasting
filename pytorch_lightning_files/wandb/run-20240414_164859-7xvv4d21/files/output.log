@@ -1,0 +1,56 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type     | Params
+---------------------------------------
+0 | model     | RNNModel | 1.8 K
+1 | criterion | MSELoss  | 0
+---------------------------------------
+1.8 K     Trainable params
+0         Non-trainable params
+1.8 K     Total params
+0.007     Total estimated model params size (MB)
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (48) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 29: 100%|██████████| 48/48 [00:00<00:00, 63.66it/s, v_num=4d21, train_loss_step=0.00688, val_loss_step=0.00797, val_loss_epoch=0.00311, train_loss_epoch=0.00132]
+Testing DataLoader 0: 100%|██████████| 6/6 [00:00<00:00, 284.11it/s]
+364
+364
+364
+364
+`Trainer.fit` stopped: `max_epochs=30` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\7xvv4d21\checkpoints\epoch=29-step=1440.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at .\RNN_single_step_forecasts\7xvv4d21\checkpoints\epoch=29-step=1440.ckpt
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 6/6 [00:01<00:00,  4.47it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss          0.0034793440718203783
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
