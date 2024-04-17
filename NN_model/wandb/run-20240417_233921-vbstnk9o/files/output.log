@@ -1,0 +1,72 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 13.3 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+13.3 K    Trainable params
+0         Non-trainable params
+13.3 K    Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 49: 100%|██████████| 107/107 [00:00<00:00, 135.87it/s, v_num=nk9o, train_loss_step=235.0, val_loss_step=463.0, val_loss_epoch=473.0, train_loss_epoch=118.0]
+`Trainer.fit` stopped: `max_epochs=50` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\vbstnk9o\checkpoints\epoch=49-step=5350.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 49: 100%|██████████| 107/107 [00:01<00:00, 90.65it/s, v_num=nk9o, train_loss_step=235.0, val_loss_step=463.0, val_loss_epoch=473.0, train_loss_epoch=118.0]

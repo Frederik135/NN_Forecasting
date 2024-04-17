@@ -1,0 +1,134 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type     | Params
+---------------------------------------
+0 | model     | RNNModel | 8.5 K
+1 | criterion | MSELoss  | 0
+---------------------------------------
+8.5 K     Trainable params
+0         Non-trainable params
+8.5 K     Total params
+0.034     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 77: 100%|██████████| 107/107 [00:01<00:00, 98.54it/s, v_num=w2dg, train_loss_step=0.0129, val_loss_step=0.0229, val_loss_epoch=0.0498, train_loss_epoch=0.0631]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 99: 100%|██████████| 107/107 [00:01<00:00, 93.89it/s, v_num=w2dg, train_loss_step=0.0136, val_loss_step=0.0244, val_loss_epoch=0.0522, train_loss_epoch=0.052]
+`Trainer.fit` stopped: `max_epochs=100` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\kmyxw2dg\checkpoints\epoch=99-step=10700.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 99: 100%|██████████| 107/107 [00:01<00:00, 59.09it/s, v_num=w2dg, train_loss_step=0.0136, val_loss_step=0.0244, val_loss_epoch=0.0522, train_loss_epoch=0.052]
+Testing DataLoader 0: 100%|██████████| 14/14 [00:00<00:00, 117.92it/s]14
+843
+843
+843
+843
+Testing DataLoader 0: 100%|██████████| 14/14 [00:02<00:00,  6.17it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss          0.049422480165958405
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

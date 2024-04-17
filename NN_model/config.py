@@ -9,9 +9,9 @@ stock_ticker = "KO"
 ticker = yf.Ticker(stock_ticker)
 company_name = ticker.info.get('longName', 'Company name not found')
 
-num_units = 40
-num_layers = 1
-dropout_prob = 0
+num_units = 80
+num_layers = 2
+dropout_prob = 0.35
 
 model_config = {
     "input_size": 14,                   # Number of features (Currently: 4 price features and 5 time features (each with two columns))
@@ -21,13 +21,13 @@ model_config = {
     "dropout_prob": dropout_prob        # Dropout probability (usually between 0.2 and 0.5; only apply when using >= 2 layers)
 }
 
-model = RNNModel(**model_config).to(device)     # Select Deep Learning model
+model = LSTMModel(**model_config).to(device)     # Select Deep Learning model
 
 architecture = str(model).split("(")[0].replace("Model", "")       # Selection of the RNN model
-seq_length = 13                 # Number of time steps
-start_date = '1990-01-01'       # Start date of the complete dataframe
+seq_length = 10                 # Number of time steps
+start_date = '1970-01-01'       # Start date of the complete dataframe
 end_date = '2024-01-01'         # End date of the complete dataframe
-num_epochs = 100                 # Number of epochs
+num_epochs = 200                 # Number of epochs
 learning_rate = 0.001           # Learning rate of the optimizer
 
 wandb_config = {
