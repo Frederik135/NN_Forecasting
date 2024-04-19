@@ -23,6 +23,11 @@ def standardize(feature_list):
     feature_list_standardized = (feature_list - mean) / std_dev
     return feature_list_standardized
     
+def flatten_cyclic_features(df, feature_name):
+    df[f'{feature_name}_cos'] = df[feature_name].apply(lambda x: x[0])
+    df[f'{feature_name}_sin'] = df[feature_name].apply(lambda x: x[1])
+    df.drop(feature_name, axis=1, inplace=True)
+    return df
 
 stock_df = yf.download(stock_ticker, start=start_date, end=end_date)
 
@@ -101,3 +106,9 @@ def day_of_week(day):
 features_df['day_of_week'] = features_df.index.isocalendar().day.map(day_of_week)
 
 # 11. Hour of day
+
+
+# Split time encodings into separate columns for cos and sin
+cyclic_features = ['month_of_year', 'week_of_year', 'day_of_year', 'day_of_month', 'day_of_week']
+for feature in cyclic_features:
+    features_df = flatten_cyclic_features(features_df, feature)
