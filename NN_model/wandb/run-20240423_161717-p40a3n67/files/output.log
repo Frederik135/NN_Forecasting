@@ -1,0 +1,76 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type    | Params
+--------------------------------------
+0 | model     | FCNN    | 2.9 K
+1 | criterion | MSELoss | 0
+--------------------------------------
+2.9 K     Trainable params
+0         Non-trainable params
+2.9 K     Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 49: 100%|██████████| 107/107 [00:00<00:00, 151.31it/s, v_num=3n67, train_loss_step=3.76e-7, val_loss_step=6.24e-7, val_loss_epoch=7.76e-7, train_loss_epoch=1.27e-6]
+`Trainer.fit` stopped: `max_epochs=50` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\p40a3n67\checkpoints\epoch=49-step=5350.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 49: 100%|██████████| 107/107 [00:01<00:00, 100.28it/s, v_num=3n67, train_loss_step=3.76e-7, val_loss_step=6.24e-7, val_loss_epoch=7.76e-7, train_loss_epoch=1.27e-6]
+Testing DataLoader 0: 100%|██████████| 14/14 [00:03<00:00,  3.84it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss          6.321924388430489e-07
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

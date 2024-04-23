@@ -1,0 +1,13 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type    | Params
+--------------------------------------
+0 | model     | FCNN    | 2.2 K
+1 | criterion | MSELoss | 0
+--------------------------------------
+2.2 K     Trainable params
+0         Non-trainable params
+2.2 K     Total params
+0.009     Total estimated model params size (MB)
+
+Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\torch\nn\modules\loss.py:535: UserWarning: Using a target size (torch.Size([64, 1])) that is different to the input size (torch.Size([64, 11, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.

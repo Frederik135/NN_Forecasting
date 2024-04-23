@@ -1,0 +1,78 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type    | Params
+--------------------------------------
+0 | model     | GRU     | 8.0 K
+1 | criterion | MSELoss | 0
+--------------------------------------
+8.0 K     Trainable params
+0         Non-trainable params
+8.0 K     Total params
+0.032     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 47: 100%|██████████| 107/107 [00:00<00:00, 141.95it/s, v_num=5z9t, train_loss_step=1.13e-7, val_loss_step=3.62e-7, val_loss_epoch=8.1e-7, train_loss_epoch=1.36e-6]
+
+
+
+Epoch 49: 100%|██████████| 107/107 [00:00<00:00, 135.82it/s, v_num=5z9t, train_loss_step=4.06e-8, val_loss_step=1.23e-7, val_loss_epoch=3.33e-7, train_loss_epoch=5.24e-7]
+`Trainer.fit` stopped: `max_epochs=50` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\51g15z9t\checkpoints\epoch=49-step=5350.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 49: 100%|██████████| 107/107 [00:01<00:00, 90.97it/s, v_num=5z9t, train_loss_step=4.06e-8, val_loss_step=1.23e-7, val_loss_epoch=3.33e-7, train_loss_epoch=5.24e-7]
+Testing DataLoader 0: 100%|██████████| 14/14 [00:06<00:00,  2.24it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss         2.1417717732674646e-07
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
