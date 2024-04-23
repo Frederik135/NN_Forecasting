@@ -1,7 +1,10 @@
+import torch
 import yfinance as yf
 import pandas as pd
 import numpy as np
 from config import stock_ticker, start_date, end_date
+from sklearn.preprocessing import MinMaxScaler
+from config import seq_length
 
 def adjust_to_three_sigma(feature_list):
     percentile_1st = np.percentile(feature_list, 0.3)
@@ -149,3 +152,62 @@ def assign_labels(stock_df):
 
 labels = assign_labels(stock_df)
 """
+
+
+def create_sequences(data, labels):
+    xs = []
+    ys = []
+    for i in range(len(data) - seq_length):
+        x = data[i:(i + seq_length)]
+        y = labels[i + seq_length - 1]
+        xs.append(x)
+        ys.append(y)
+    return np.array(xs), np.array(ys).reshape(-1, 1)
+
+
+total_length = len(features_df)
+split_idx = int(total_length * 0.8) + seq_length
+val_test_idx = int(total_length * 0.9) + seq_length
+
+train_df = features_df.iloc[:split_idx]
+val_df = features_df.iloc[split_idx:val_test_idx]
+test_df = features_df.iloc[val_test_idx:]
+
+train_labels = labels[:split_idx]
+val_labels = labels[split_idx:val_test_idx]
+test_labels = labels[val_test_idx:]
+
+# Normalizing each feature individually
+feature_scaler = {}
+train_normalized = train_df.copy()
+val_normalized = val_df.copy()
+test_normalized = test_df.copy()
+
+# last closing price in the validation set (needed for plotting the predictions of the test set)
+initial_actual_close = stock_df['Close'].values[val_test_idx - 1]
+
+for column in train_df.columns:
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    train_normalized[column] = scaler.fit_transform(train_df[column].values.reshape(-1, 1)).flatten()
+    val_normalized[column] = scaler.transform(val_df[column].values.reshape(-1, 1)).flatten()
+    test_normalized[column] = scaler.transform(test_df[column].values.reshape(-1, 1)).flatten()
+    feature_scaler[column] = scaler
+
+label_scaler = MinMaxScaler(feature_range=(-1, 1))
+train_labels_scaled = label_scaler.fit_transform(train_labels.reshape(-1, 1))
+val_labels_scaled = label_scaler.transform(val_labels.reshape(-1, 1))
+test_labels_scaled = label_scaler.transform(test_labels.reshape(-1, 1))
+
+X_train, y_train = create_sequences(train_normalized.values, train_labels_scaled.flatten())
+X_val, y_val = create_sequences(val_normalized.values, val_labels_scaled.flatten())
+X_test, y_test = create_sequences(test_normalized.values, test_labels_scaled.flatten())
+
+test_dates = features_df.index[-(len(X_test) + seq_length):].tolist()
+test_dates = test_dates[seq_length:]
+
+train_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_train), torch.FloatTensor(y_train)), batch_size=64, shuffle=False, 
+                                            num_workers=15, persistent_workers=True)
+val_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_val), torch.FloatTensor(y_val)), batch_size=64, shuffle=False, 
+                                            num_workers=15, persistent_workers=True)
+test_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_test), torch.FloatTensor(y_test)), batch_size=64, shuffle=False, 
+                                            num_workers=15, persistent_workers=True)
