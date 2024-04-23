@@ -1,0 +1,28 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 7.2 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+7.2 K     Trainable params
+0         Non-trainable params
+7.2 K     Total params
+
+
+
+
+Epoch 1: 100%|██████████| 164/164 [00:01<00:00, 126.94it/s, v_num=1ctg, train_loss_step=0.864, val_loss_step=1.370, val_loss_epoch=1.050, train_loss_epoch=0.401]
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\trainer\call.py:54: Detected KeyboardInterrupt, attempting graceful shutdown...
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\1cmq1ctg\checkpoints\epoch=2-step=492.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+
+
+Testing DataLoader 0: 100%|██████████| 21/21 [00:00<00:00, 26.78it/s] , train_loss_step=0.958, val_loss_step=1.490, val_loss_epoch=1.150, train_loss_epoch=0.412]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss           2.7491488456726074
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

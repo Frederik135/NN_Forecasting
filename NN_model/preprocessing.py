@@ -35,24 +35,36 @@ stock_df = yf.download(stock_ticker, start=start_date, end=end_date)
 stock_df = stock_df[~((stock_df.index.month == 2) & (stock_df.index.day == 29))]
 features_df = pd.DataFrame(index=stock_df.index)
 
+labels = stock_df['Close'].values
+labels = [0] + [labels[i]/labels[i-1] for i in range(1, len(labels))]
+labels = np.array(labels)
+
+# curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
+curr_close_prev_close_rel = [0] + [stock_df['Close'].iloc[i] / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
+features_df['curr_close_prev_close_rel'] = curr_close_prev_close_rel
+
+
+"""
 # 1. Current open minus previous close [%]
-curr_open_prev_close = [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) * 100 / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
+curr_open_prev_close = [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_open_prev_close = [0] + curr_open_prev_close
 curr_open_prev_close_adj = adjust_to_three_sigma(curr_open_prev_close)
 curr_open_prev_close_adj_std = standardize(curr_open_prev_close_adj)
 features_df['curr_open_prev_close_adj_std'] = curr_open_prev_close_adj_std
 
+
 # 2. Today's close minus today's open [%] | (daily movement)
-t_close_t_open = [(stock_df['Close'].iloc[i] - stock_df['Open'].iloc[i]) * 100 / stock_df['Open'].iloc[i] for i in range(len(stock_df))]
+t_close_t_open = [(stock_df['Close'].iloc[i] - stock_df['Open'].iloc[i]) / stock_df['Open'].iloc[i] for i in range(len(stock_df))]
 t_close_t_open_adj = adjust_to_three_sigma(t_close_t_open)
 t_close_t_open_adj_std = standardize(t_close_t_open_adj)
 features_df['t_close_t_open_adj_std'] = t_close_t_open_adj_std
 
 # 3. Today's high minus today's low [%] | (daily volatility)
-t_high_t_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) * 100 / stock_df['Low'].iloc[i] for i in range(len(stock_df))]
+t_high_t_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) / stock_df['Low'].iloc[i] for i in range(len(stock_df))]
 t_high_t_low_adj = adjust_to_three_sigma(t_high_t_low)
 t_high_t_low_adj_std = standardize(t_high_t_low_adj)
 features_df['t_high_t_low_adj_std'] = t_high_t_low_adj_std
+
 
 # 4. Bid-Ask Spread [%]
 
@@ -112,3 +124,28 @@ features_df['day_of_week'] = features_df.index.isocalendar().day.map(day_of_week
 cyclic_features = ['month_of_year', 'week_of_year', 'day_of_year', 'day_of_month', 'day_of_week']
 for feature in cyclic_features:
     features_df = flatten_cyclic_features(features_df, feature)
+"""
+
+
+"""
+# Create labels
+def calculate_moving_average(data, window=7):
+    return data.rolling(window=window).mean()
+
+def assign_labels(stock_df):
+    # Calculate future moving average
+    future_ma = calculate_moving_average(stock_df['Close'].shift(-7), window=7)
+    
+    # Calculate percentage change from current price to future moving average
+    pct_change = ((future_ma - stock_df['Close']) / stock_df['Close']) * 100
+
+    # Assign labels based on percentage change
+    labels = np.zeros((len(stock_df), 3))  # Initialize a matrix of zeros with shape (n_samples, 3)
+    labels[pct_change > 3, 0] = 1  # Buy
+    labels[(pct_change <= 3) & (pct_change >= -3), 1] = 1  # Hold
+    labels[pct_change < -3, 2] = 1  # Sell
+
+    return labels
+
+labels = assign_labels(stock_df)
+"""

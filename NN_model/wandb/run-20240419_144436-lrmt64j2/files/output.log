@@ -1,0 +1,151 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 7.2 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+7.2 K     Trainable params
+0         Non-trainable params
+7.2 K     Total params
+0.029     Total estimated model params size (MB)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 22: 100%|██████████| 164/164 [00:01<00:00, 152.84it/s, v_num=64j2, train_loss_step=1.300, val_loss_step=1.900, val_loss_epoch=1.510, train_loss_epoch=0.373]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 110: 100%|██████████| 164/164 [00:01<00:00, 145.76it/s, v_num=64j2, train_loss_step=0.609, val_loss_step=1.450, val_loss_epoch=0.928, train_loss_epoch=0.277]
+
+
+
+
+Epoch 115: 100%|██████████| 164/164 [00:01<00:00, 148.92it/s, v_num=64j2, train_loss_step=0.594, val_loss_step=1.420, val_loss_epoch=0.912, train_loss_epoch=0.273]
+
+
+
+
+
+Epoch 119: 100%|██████████| 164/164 [00:01<00:00, 102.25it/s, v_num=64j2, train_loss_step=0.577, val_loss_step=1.390, val_loss_epoch=0.921, train_loss_epoch=0.268]
+Testing DataLoader 0: 100%|██████████| 21/21 [00:00<00:00, 192.83it/s]
+`Trainer.fit` stopped: `max_epochs=120` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\lrmt64j2\checkpoints\epoch=119-step=19680.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing DataLoader 0: 100%|██████████| 21/21 [00:01<00:00, 15.31it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss            2.26416277885437
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

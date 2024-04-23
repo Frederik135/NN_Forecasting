@@ -1,0 +1,179 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type     | Params
+---------------------------------------
+0 | model     | GRUModel | 6.5 K
+1 | criterion | MSELoss  | 0
+---------------------------------------
+6.5 K     Trainable params
+0         Non-trainable params
+6.5 K     Total params
+
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\torch\nn\modules\loss.py:535: UserWarning: Using a target size (torch.Size([64])) that is different to the input size (torch.Size([64, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.mse_loss(input, target, reduction=self.reduction)
+
+
+Epoch 0: 100%|██████████| 122/122 [00:04<00:00, 25.02it/s, v_num=7tnm, train_loss_step=0.168, val_loss_step=0.631, val_loss_epoch=0.276, train_loss_epoch=0.224]
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\torch\nn\modules\loss.py:535: UserWarning: Using a target size (torch.Size([37])) that is different to the input size (torch.Size([37, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 34: 100%|██████████| 122/122 [00:00<00:00, 140.93it/s, v_num=7tnm, train_loss_step=0.312, val_loss_step=0.934, val_loss_epoch=0.448, train_loss_epoch=0.161]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 75: 100%|██████████| 122/122 [00:00<00:00, 138.41it/s, v_num=7tnm, train_loss_step=0.354, val_loss_step=1.010, val_loss_epoch=0.499, train_loss_epoch=0.156]
+
+
+
+
+
+Epoch 82: 100%|██████████| 122/122 [00:00<00:00, 139.25it/s, v_num=7tnm, train_loss_step=0.361, val_loss_step=1.030, val_loss_epoch=0.511, train_loss_epoch=0.156]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 98: 100%|██████████| 122/122 [00:00<00:00, 137.11it/s, v_num=7tnm, train_loss_step=0.364, val_loss_step=1.020, val_loss_epoch=0.505, train_loss_epoch=0.155]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 149: 100%|██████████| 122/122 [00:01<00:00, 66.99it/s, v_num=7tnm, train_loss_step=0.384, val_loss_step=1.080, val_loss_epoch=0.536, train_loss_epoch=0.153]
+Testing DataLoader 0: 100%|██████████| 15/15 [00:00<00:00, 64.49it/s]
+`Trainer.fit` stopped: `max_epochs=150` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\2dyy7tnm\checkpoints\epoch=149-step=18300.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at .\RNN_single_step_forecasts\2dyy7tnm\checkpoints\epoch=149-step=18300.ckpt
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\torch\nn\modules\loss.py:535: UserWarning: Using a target size (torch.Size([38])) that is different to the input size (torch.Size([38, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+Testing DataLoader 0: 100%|██████████| 15/15 [00:02<00:00,  6.69it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss           1.0913617610931396
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

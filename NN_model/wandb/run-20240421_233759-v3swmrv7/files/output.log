@@ -1,0 +1,176 @@
+
+Epoch 0: 100%|██████████| 67/67 [00:00<00:00, 107.06it/s, v_num=mrv7, train_loss_step=1.400, val_loss_step=14.20, val_loss_epoch=5.870, train_loss_epoch=0.166]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 10.7 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+10.7 K    Trainable params
+0         Non-trainable params
+10.7 K    Total params
+0.043     Total estimated model params size (MB)
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 149: 100%|██████████| 67/67 [00:00<00:00, 137.41it/s, v_num=mrv7, train_loss_step=0.00247, val_loss_step=1.280, val_loss_epoch=0.221, train_loss_epoch=0.00148]
+`Trainer.fit` stopped: `max_epochs=150` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\v3swmrv7\checkpoints\epoch=149-step=10050.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at .\RNN_single_step_forecasts\v3swmrv7\checkpoints\epoch=149-step=10050.ckpt
+Epoch 149: 100%|██████████| 67/67 [00:00<00:00, 77.71it/s, v_num=mrv7, train_loss_step=0.00247, val_loss_step=1.280, val_loss_epoch=0.221, train_loss_epoch=0.00148]
+Testing DataLoader 0: 100%|██████████| 9/9 [00:01<00:00,  6.70it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss           0.7950005531311035
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

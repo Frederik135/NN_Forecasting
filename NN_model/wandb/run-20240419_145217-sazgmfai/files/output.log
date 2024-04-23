@@ -1,0 +1,146 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type     | Params
+---------------------------------------
+0 | model     | GRUModel | 6.7 K
+1 | criterion | MSELoss  | 0
+---------------------------------------
+6.7 K     Trainable params
+0         Non-trainable params
+6.7 K     Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 119: 100%|██████████| 123/123 [00:00<00:00, 131.80it/s, v_num=mfai, train_loss_step=0.746, val_loss_step=2.290, val_loss_epoch=0.938, train_loss_epoch=0.309]
+`Trainer.fit` stopped: `max_epochs=120` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\sazgmfai\checkpoints\epoch=119-step=14760.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 119: 100%|██████████| 123/123 [00:01<00:00, 91.07it/s, v_num=mfai, train_loss_step=0.746, val_loss_step=2.290, val_loss_epoch=0.938, train_loss_epoch=0.309]
+Testing DataLoader 0: 100%|██████████| 16/16 [00:01<00:00, 10.47it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss           2.1576311588287354
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

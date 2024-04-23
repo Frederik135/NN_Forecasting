@@ -1,0 +1,127 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 10.7 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+10.7 K    Trainable params
+0         Non-trainable params
+10.7 K    Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 99: 100%|██████████| 67/67 [00:00<00:00, 137.50it/s, v_num=mugz, train_loss_step=3.07e-7, val_loss_step=6.66e-5, val_loss_epoch=4.23e-5, train_loss_epoch=1.77e-5]
+`Trainer.fit` stopped: `max_epochs=100` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\21pzmugz\checkpoints\epoch=99-step=6700.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 99: 100%|██████████| 67/67 [00:00<00:00, 77.57it/s, v_num=mugz, train_loss_step=3.07e-7, val_loss_step=6.66e-5, val_loss_epoch=4.23e-5, train_loss_epoch=1.77e-5]
+Testing DataLoader 0: 100%|██████████| 8/8 [00:01<00:00,  5.70it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        test_loss         3.0110348234302364e-05
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,107 @@
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 10.7 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+10.7 K    Trainable params
+0         Non-trainable params
+10.7 K    Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 29: 100%|██████████| 67/67 [00:00<00:00, 127.30it/s, v_num=m2l9, train_loss_step=0.00017, val_loss_step=0.00129, val_loss_epoch=0.000765, train_loss_epoch=0.000329]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\l3pjm2l9\checkpoints\epoch=29-step=2010.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 29: 100%|██████████| 67/67 [00:00<00:00, 73.46it/s, v_num=m2l9, train_loss_step=0.00017, val_loss_step=0.00129, val_loss_epoch=0.000765, train_loss_epoch=0.000329]
+Testing DataLoader 0: 100%|██████████| 8/8 [00:00<00:00, 82.87it/s]
+[58.650001525878906, 59.08318163687454, 59.31488389621343, 59.38540183400441, 59.214143152174564, 59.647318132895606, 59.73798430224248, 60.73529705658645, 61.23899133827533, 60.91662660511393]
+[58.65000153 58.88000107 58.95000076 58.77999878 59.20999908 59.29999924
+ 60.29000092 60.79000092 60.47000122 60.33000183]
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\loggers\wandb.py:391: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+c:\Users\janfr\anaconda3\envs\pytorch_3_10\lib\site-packages\pytorch_lightning\callbacks\model_checkpoint.py:653: Checkpoint directory .\RNN_single_step_forecasts\l3pjm2l9\checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type      | Params
+----------------------------------------
+0 | model     | LSTMModel | 10.7 K
+1 | criterion | MSELoss   | 0
+----------------------------------------
+10.7 K    Trainable params
+0         Non-trainable params
+10.7 K    Total params
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 29: 100%|██████████| 67/67 [00:00<00:00, 138.68it/s, v_num=m2l9, train_loss_step=0.000156, val_loss_step=0.00136, val_loss_epoch=0.00081, train_loss_epoch=0.000345]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+Restoring states from the checkpoint path at .\RNN_single_step_forecasts\l3pjm2l9\checkpoints\epoch=29-step=2010-v1.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 29: 100%|██████████| 67/67 [00:00<00:00, 78.34it/s, v_num=m2l9, train_loss_step=0.000156, val_loss_step=0.00136, val_loss_epoch=0.00081, train_loss_epoch=0.000345]
+Testing DataLoader 0: 100%|██████████| 8/8 [00:00<00:00, 54.38it/s]
+[1.0006876, 1.0073858, 1.0039216, 1.0011889, 0.99711615, 1.0073154, 1.00152, 1.0166948, 1.0082933, 0.99473596]
+[58.65000153 58.88000107 58.95000076 58.77999878 59.20999908 59.29999924
