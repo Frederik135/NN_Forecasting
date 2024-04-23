@@ -1,5 +1,6 @@
 __pycache__
 wandb
+NN_model/wandb
 runs
 plot.png
 ._.DS_Store
