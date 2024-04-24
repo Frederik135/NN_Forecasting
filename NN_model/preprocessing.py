@@ -47,13 +47,12 @@ labels = np.array(labels)
 curr_close_prev_close_rel = [1.0] + [stock_df['Close'].iloc[i] / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_close_prev_close_rel_std = standardize(curr_close_prev_close_rel)
 features_df['curr_close_prev_close_rel_std'] = curr_close_prev_close_rel_std
-
+"""
 # 2. Absolute change
 curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_close_prev_close_abs_std = standardize(curr_close_prev_close_abs)
 features_df['curr_close_prev_close_abs_std'] = curr_close_prev_close_abs_std
 
-"""
 # 3. Current open minus previous close [%]
 curr_open_prev_close = [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_open_prev_close = [0] + curr_open_prev_close
@@ -72,9 +71,7 @@ t_high_t_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) / stock_df[
 t_high_t_low_adj = adjust_to_three_sigma(t_high_t_low)
 t_high_t_low_adj_std = standardize(t_high_t_low_adj)
 features_df['t_high_t_low_adj_std'] = t_high_t_low_adj_std
-"""
 
-"""
 # 6. Bid-Ask Spread [%]
 
 # 7. Volume
@@ -214,9 +211,10 @@ X_test, y_test = create_sequences(test_normalized.values, test_labels_scaled.fla
 test_dates = features_df.index[-(len(X_test) + seq_length):].tolist()
 test_dates = test_dates[seq_length:]
 
+# num_workers = 15 (home pc), max_workers = 10 (mac)
 train_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_train), torch.FloatTensor(y_train)), batch_size=64, shuffle=False, 
-                                            num_workers=15, persistent_workers=True)
+                                            num_workers=10, persistent_workers=True)
 val_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_val), torch.FloatTensor(y_val)), batch_size=64, shuffle=False, 
-                                            num_workers=15, persistent_workers=True)
+                                            num_workers=10, persistent_workers=True)
 test_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_test), torch.FloatTensor(y_test)), batch_size=64, shuffle=False, 
-                                            num_workers=15, persistent_workers=True)
+                                            num_workers=10, persistent_workers=True)
