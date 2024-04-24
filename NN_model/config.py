@@ -9,7 +9,7 @@ stock_ticker = "KO"
 ticker = yf.Ticker(stock_ticker)
 company_name = ticker.info.get('longName', 'Company name not found')
 
-features = ["curr_close_prev_close_rel"]
+features = ["curr_close_prev_close_rel", "curr_close_prev_close_abs"]
 num_features = len(features)
 num_units = 50
 num_layers = 1
@@ -24,7 +24,7 @@ model_config = {
     "output_size": 1,                   # Number of output neurons
     "dropout_prob": dropout_prob        # Dropout probability (usually between 0.2 and 0.5; only apply when using >= 2 layers)
 }
-model = GRU(**model_config).to(device)             # Select RNN model
+model = LSTM(**model_config).to(device)             # Select RNN model
 
 
 """
