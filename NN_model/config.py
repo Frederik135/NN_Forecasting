@@ -3,6 +3,8 @@ import torch.nn as nn
 import yfinance as yf
 from models import RNN, LSTM, GRU, FCNN
 
+# Wichtigste Hyperparameter: number_units, num_layers, seq_length, learning_rate
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 stock_ticker = "KO"
@@ -24,7 +26,7 @@ model_config = {
     "output_size": 1,                   # Number of output neurons
     "dropout_prob": dropout_prob        # Dropout probability (usually between 0.2 and 0.5; only apply when using >= 2 layers)
 }
-model = GRU(**model_config).to(device)             # Select RNN model
+model = LSTM(**model_config).to(device)             # Select RNN model
 
 """
 model_config = {
@@ -38,10 +40,10 @@ model = FCNN(**model_config).to(device)
 """
 
 architecture = str(model).split("(")[0]         # Selection of the RNN model
-start_date = '1990-01-01'                       # Start date of the complete dataframe
+start_date = '1980-01-01'                       # Start date of the complete dataframe
 end_date = '2024-01-01'                         # End date of the complete dataframe
-num_epochs = 100                                # Number of epochs
-learning_rate = 0.001                           # Learning rate of the optimizer
+num_epochs = 200                                # Number of epochs
+learning_rate = 0.00001                         # Learning rate of the optimizer
 
 wandb_config = {
     "dataset": f"{company_name} closing prices",

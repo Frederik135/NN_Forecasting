@@ -47,6 +47,9 @@ labels = np.array(labels)
 curr_close_prev_close_rel = [1.0] + [stock_df['Close'].iloc[i] / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_close_prev_close_rel_std = standardize(curr_close_prev_close_rel)
 features_df['curr_close_prev_close_rel_std'] = curr_close_prev_close_rel_std
+
+# 1.1 curr_close - prev_close / prev_close
+
 """
 # 2. Absolute change
 curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
@@ -80,7 +83,9 @@ volume_adjusted = adjust_to_three_sigma(volume)
 log_volume = [np.log(value) for value in stock_df['Volume']]
 volume_log_std = standardize(log_volume)
 features_df['volume_log_std'] = volume_log_std
+"""
 
+"""
 # 8. Month of year
 def month_of_year(month):
     radians = (month - 1) * (np.pi / 6)
@@ -132,7 +137,6 @@ for feature in cyclic_features:
     features_df = flatten_cyclic_features(features_df, feature)
 """
 
-
 """
 # Classification Task: Create Labels
 def calculate_moving_average(data, window=7):
@@ -156,17 +160,15 @@ def assign_labels(stock_df):
 labels = assign_labels(stock_df)
 """
 
-
 def create_sequences(data, labels):
     xs = []
     ys = []
     for i in range(len(data) - seq_length):
         x = data[i:(i + seq_length)]
-        y = labels[i + seq_length - 1]
+        y = labels[i + seq_length]
         xs.append(x)
         ys.append(y)
     return np.array(xs), np.array(ys).reshape(-1, 1)
-
 
 total_length = len(features_df)
 split_idx = int(total_length * 0.8) + seq_length
@@ -181,7 +183,7 @@ val_labels = labels[split_idx:val_test_idx]
 test_labels = labels[val_test_idx:]
 
 # p: autoregression (number of lag observations included in the model), q: moving average, d: degree of differencing; 
-auto_arima_model = auto_arima(train_labels, start_p=0, start_q=0, max_p=15, max_q=15, max_d=5, 
+auto_arima_model = auto_arima(train_labels, start_p=0, start_q=0, max_p=1, max_q=1, max_d=1, 
                                 trace=True, error_action='ignore', suppress_warnings=True, stepwise=True)
 
 feature_scaler = {}

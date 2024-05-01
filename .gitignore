@@ -1,6 +1,7 @@
 __pycache__
 wandb/
 NN_model/wandb/
+NN_model/RNN_single_step_forecasts
 runs
 plot.png
 ._.DS_Store
