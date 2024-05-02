@@ -45,63 +45,63 @@ labels = np.array(labels)
 
 
 # 1 curr_close - prev_close / prev_close
+curr_close_prev_close = [0.0] + [(stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1, len(stock_df))]
+curr_close_prev_close_adj = adjust_to_three_sigma(curr_close_prev_close)
+curr_close_prev_close_adj_std = standardize(curr_close_prev_close_adj)
+features_df['curr_close_prev_close_adj_std'] = curr_close_prev_close_adj_std
 
+# # 2. Absolute change
+# curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
+# curr_close_prev_close_abs_std = standardize(curr_close_prev_close_abs)
+# features_df['curr_close_prev_close_abs_std'] = curr_close_prev_close_abs_std
 
-
-# 2. Absolute change
-curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
-curr_close_prev_close_abs_std = standardize(curr_close_prev_close_abs)
-features_df['curr_close_prev_close_abs_std'] = curr_close_prev_close_abs_std
-
-# 3. Current open minus previous close [%]
-curr_open_prev_close = [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
-curr_open_prev_close = [0] + curr_open_prev_close
+# 2. curr_open - prev_close / prev_close
+curr_open_prev_close = [0.0] + [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_open_prev_close_adj = adjust_to_three_sigma(curr_open_prev_close)
 curr_open_prev_close_adj_std = standardize(curr_open_prev_close_adj)
 features_df['curr_open_prev_close_adj_std'] = curr_open_prev_close_adj_std
 
-# 4. Today's close minus today's open [%] | (daily movement)
-t_close_t_open = [(stock_df['Close'].iloc[i] - stock_df['Open'].iloc[i]) / stock_df['Open'].iloc[i] for i in range(len(stock_df))]
-t_close_t_open_adj = adjust_to_three_sigma(t_close_t_open)
-t_close_t_open_adj_std = standardize(t_close_t_open_adj)
-features_df['t_close_t_open_adj_std'] = t_close_t_open_adj_std
+# 3. curr_close - curr_open / curr_open | (daily movement)
+curr_close_curr_open = [(stock_df['Close'].iloc[i] - stock_df['Open'].iloc[i]) / stock_df['Open'].iloc[i] for i in range(len(stock_df))]
+curr_close_curr_open_adj = adjust_to_three_sigma(curr_close_curr_open)
+curr_close_curr_open_adj_std = standardize(curr_close_curr_open_adj)
+features_df['curr_close_curr_open_adj_std'] = curr_close_curr_open_adj_std
 
-# 5. Today's high minus today's low [%] | (daily volatility)
-t_high_t_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) / stock_df['Low'].iloc[i] for i in range(len(stock_df))]
-t_high_t_low_adj = adjust_to_three_sigma(t_high_t_low)
-t_high_t_low_adj_std = standardize(t_high_t_low_adj)
-features_df['t_high_t_low_adj_std'] = t_high_t_low_adj_std
+# 4. curr_high - curr_low / curr_low | (daily volatility)
+curr_high_curr_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) / stock_df['Low'].iloc[i] for i in range(len(stock_df))]
+curr_high_curr_low_adj = adjust_to_three_sigma(curr_high_curr_low)
+curr_high_curr_low_adj_std = standardize(curr_high_curr_low_adj)
+features_df['curr_high_curr_low_adj_std'] = curr_high_curr_low_adj_std
 
-# 6. Bid-Ask Spread [%]
-
-# 7. Volume
+# 5. Volume
 volume = stock_df['Volume']
-volume_adjusted = adjust_to_three_sigma(volume)
 log_volume = [np.log(value) for value in stock_df['Volume']]
 volume_log_std = standardize(log_volume)
 features_df['volume_log_std'] = volume_log_std
-"""
 
-"""
-# 8. Month of year
+
+# Bid-Ask Spread [%]
+
+
+# 6. Month of year
 def month_of_year(month):
     radians = (month - 1) * (np.pi / 6)
     return [np.cos(radians), np.sin(radians)]
 features_df['month_of_year'] = features_df.index.month.map(month_of_year)
 
-# 9. Week of year
+# 7. Week of year
 def week_of_year(week):
     radians = (week - 1) * (2 * np.pi / 52)
     return [np.cos(radians), np.sin(radians)]
 features_df['week_of_year'] = features_df.index.isocalendar().week.map(week_of_year)
 
-# 10. Day of year - leap years are removed from the data so we always divide by 365
+# 8. Day of year - leap years are removed from the data so we always divide by 365
 def day_of_year(day):
     radians = (day - 1) * (2 * np.pi / 365)
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_year'] = features_df.index.map(lambda x: day_of_year(x.dayofyear))
 
-# 11. Day of month
+# 9. Day of month
 # For day_of_month we normalize by the number of days in the specific month, since there is no additional timespan from 
 # the 28th of February to the 1st of March or from the 30th of September to the 1st of October
 def day_of_month(row_index):
@@ -119,13 +119,13 @@ def day_of_month(row_index):
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_month'] = features_df.index.map(day_of_month)
 
-# 12. Day of week
+# 10. Day of week
 def day_of_week(day):
     radians = (day - 1) * (2 * np.pi / 7)
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_week'] = features_df.index.isocalendar().day.map(day_of_week)
 
-# 13. Hour of day
+# 11. Hour of day
 
 
 # Split time encodings into separate columns for cos and sin
@@ -214,8 +214,8 @@ test_dates = test_dates[seq_length:]
 
 # num_workers = 15 (home pc), max_workers = 10 (mac)
 train_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_train), torch.FloatTensor(y_train)), batch_size=64, shuffle=False, 
-                                            num_workers=10, persistent_workers=True)
+                                            num_workers=15, persistent_workers=True)
 val_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_val), torch.FloatTensor(y_val)), batch_size=64, shuffle=False, 
-                                            num_workers=10, persistent_workers=True)
+                                            num_workers=15, persistent_workers=True)
 test_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_test), torch.FloatTensor(y_test)), batch_size=64, shuffle=False, 
-                                            num_workers=10, persistent_workers=True)
+                                            num_workers=15, persistent_workers=True)
