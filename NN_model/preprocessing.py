@@ -43,14 +43,11 @@ labels = stock_df['Close'].values
 labels = [1.0] + [labels[i]/labels[i-1] for i in range(1, len(labels))]
 labels = np.array(labels)
 
-# 1. Relative change (relative change will is also used for the labels)
-curr_close_prev_close_rel = [1.0] + [stock_df['Close'].iloc[i] / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
-curr_close_prev_close_rel_std = standardize(curr_close_prev_close_rel)
-features_df['curr_close_prev_close_rel_std'] = curr_close_prev_close_rel_std
 
-# 1.1 curr_close - prev_close / prev_close
+# 1 curr_close - prev_close / prev_close
 
-"""
+
+
 # 2. Absolute change
 curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_close_prev_close_abs_std = standardize(curr_close_prev_close_abs)
@@ -135,7 +132,7 @@ features_df['day_of_week'] = features_df.index.isocalendar().day.map(day_of_week
 cyclic_features = ['month_of_year', 'week_of_year', 'day_of_year', 'day_of_month', 'day_of_week']
 for feature in cyclic_features:
     features_df = flatten_cyclic_features(features_df, feature)
-"""
+
 
 """
 # Classification Task: Create Labels
