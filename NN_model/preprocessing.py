@@ -40,40 +40,51 @@ stock_df = stock_df[~((stock_df.index.month == 2) & (stock_df.index.day == 29))]
 features_df = pd.DataFrame(index=stock_df.index)
 
 labels = stock_df['Close'].values
-labels = [1.0] + [labels[i]/labels[i-1] for i in range(1, len(labels))]
+labels = [1.0] + [labels[i] / labels[i-1] for i in range(1, len(labels))]
 labels = np.array(labels)
 
 
-# 1 curr_close - prev_close / prev_close
+# Features
+
+# 1. Relative change
+curr_close_prev_close_rel = [1.0] + [stock_df['Close'].iloc[i] / stock_df['Close'].iloc[i-1] for i in range(1, len(stock_df))]
+curr_close_prev_close_rel_adj = adjust_to_three_sigma(curr_close_prev_close_rel)
+curr_close_prev_close_rel_adj_std = standardize(curr_close_prev_close_rel_adj)
+features_df['curr_close_prev_close_rel_adj_std'] = curr_close_prev_close_rel_adj_std
+
+# 2. Absolute change
+curr_close_prev_close_abs = [0.0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
+curr_close_prev_close_abs_adj = adjust_to_three_sigma(curr_close_prev_close_abs)
+curr_close_prev_close_abs_adj_std = standardize(curr_close_prev_close_abs_adj)
+features_df['curr_close_prev_close_abs_adj_std'] = curr_close_prev_close_abs_adj_std
+
+"""
+# 3. curr_close - prev_close / prev_close
 curr_close_prev_close = [0.0] + [(stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1, len(stock_df))]
 curr_close_prev_close_adj = adjust_to_three_sigma(curr_close_prev_close)
 curr_close_prev_close_adj_std = standardize(curr_close_prev_close_adj)
 features_df['curr_close_prev_close_adj_std'] = curr_close_prev_close_adj_std
+"""
 
-# # 2. Absolute change
-# curr_close_prev_close_abs = [0] + [stock_df['Close'].iloc[i] - stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
-# curr_close_prev_close_abs_std = standardize(curr_close_prev_close_abs)
-# features_df['curr_close_prev_close_abs_std'] = curr_close_prev_close_abs_std
-
-# 2. curr_open - prev_close / prev_close
+# 4. curr_open - prev_close / prev_close
 curr_open_prev_close = [0.0] + [(stock_df['Open'].iloc[i] - stock_df['Close'].iloc[i-1]) / stock_df['Close'].iloc[i-1] for i in range(1,len(stock_df))]
 curr_open_prev_close_adj = adjust_to_three_sigma(curr_open_prev_close)
 curr_open_prev_close_adj_std = standardize(curr_open_prev_close_adj)
 features_df['curr_open_prev_close_adj_std'] = curr_open_prev_close_adj_std
 
-# 3. curr_close - curr_open / curr_open | (daily movement)
+# 5. curr_close - curr_open / curr_open | (daily movement)
 curr_close_curr_open = [(stock_df['Close'].iloc[i] - stock_df['Open'].iloc[i]) / stock_df['Open'].iloc[i] for i in range(len(stock_df))]
 curr_close_curr_open_adj = adjust_to_three_sigma(curr_close_curr_open)
 curr_close_curr_open_adj_std = standardize(curr_close_curr_open_adj)
 features_df['curr_close_curr_open_adj_std'] = curr_close_curr_open_adj_std
 
-# 4. curr_high - curr_low / curr_low | (daily volatility)
+# 6. curr_high - curr_low / curr_low | (daily volatility)
 curr_high_curr_low = [(stock_df['High'].iloc[i] - stock_df['Low'].iloc[i]) / stock_df['Low'].iloc[i] for i in range(len(stock_df))]
 curr_high_curr_low_adj = adjust_to_three_sigma(curr_high_curr_low)
 curr_high_curr_low_adj_std = standardize(curr_high_curr_low_adj)
 features_df['curr_high_curr_low_adj_std'] = curr_high_curr_low_adj_std
 
-# 5. Volume
+# 7. Volume
 volume = stock_df['Volume']
 log_volume = [np.log(value) for value in stock_df['Volume']]
 volume_log_std = standardize(log_volume)
@@ -83,25 +94,25 @@ features_df['volume_log_std'] = volume_log_std
 # Bid-Ask Spread [%]
 
 
-# 6. Month of year
+# 8. Month of year
 def month_of_year(month):
     radians = (month - 1) * (np.pi / 6)
     return [np.cos(radians), np.sin(radians)]
 features_df['month_of_year'] = features_df.index.month.map(month_of_year)
 
-# 7. Week of year
+# 9. Week of year
 def week_of_year(week):
     radians = (week - 1) * (2 * np.pi / 52)
     return [np.cos(radians), np.sin(radians)]
 features_df['week_of_year'] = features_df.index.isocalendar().week.map(week_of_year)
 
-# 8. Day of year - leap years are removed from the data so we always divide by 365
+# 10. Day of year - leap years are removed from the data so we always divide by 365
 def day_of_year(day):
     radians = (day - 1) * (2 * np.pi / 365)
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_year'] = features_df.index.map(lambda x: day_of_year(x.dayofyear))
 
-# 9. Day of month
+# 11. Day of month
 # For day_of_month we normalize by the number of days in the specific month, since there is no additional timespan from 
 # the 28th of February to the 1st of March or from the 30th of September to the 1st of October
 def day_of_month(row_index):
@@ -119,13 +130,13 @@ def day_of_month(row_index):
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_month'] = features_df.index.map(day_of_month)
 
-# 10. Day of week
+# 12. Day of week
 def day_of_week(day):
     radians = (day - 1) * (2 * np.pi / 7)
     return [np.cos(radians), np.sin(radians)]
 features_df['day_of_week'] = features_df.index.isocalendar().day.map(day_of_week)
 
-# 11. Hour of day
+# 13. Hour of day
 
 
 # Split time encodings into separate columns for cos and sin
@@ -179,11 +190,11 @@ train_labels = labels[:split_idx]
 val_labels = labels[split_idx:val_test_idx]
 test_labels = labels[val_test_idx:]
 
-"""
+
 # p: autoregression (number of lag observations included in the model), q: moving average, d: degree of differencing; 
 auto_arima_model = auto_arima(train_labels, start_p=0, start_q=0, max_p=1, max_q=1, max_d=1, 
                                 trace=True, error_action='ignore', suppress_warnings=True, stepwise=True)
-"""
+
 
 feature_scaler = {}
 train_normalized = train_df.copy()
