@@ -26,7 +26,7 @@ model_config = {
     "output_size": 1,                   # Number of output neurons
     "dropout_prob": dropout_prob        # Dropout probability (usually between 0.2 and 0.5; only apply when using >= 2 layers)
 }
-model = LSTM(**model_config).to(device)             # Select RNN model
+model = GRU(**model_config).to(device)             # Select RNN model
 
 """
 model_config = {

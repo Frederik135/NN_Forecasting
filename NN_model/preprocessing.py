@@ -190,11 +190,11 @@ train_labels = labels[:split_idx]
 val_labels = labels[split_idx:val_test_idx]
 test_labels = labels[val_test_idx:]
 
-
+"""
 # p: autoregression (number of lag observations included in the model), q: moving average, d: degree of differencing; 
 auto_arima_model = auto_arima(train_labels, start_p=0, start_q=0, max_p=1, max_q=1, max_d=1, 
                                 trace=True, error_action='ignore', suppress_warnings=True, stepwise=True)
-
+"""
 
 feature_scaler = {}
 train_normalized = train_df.copy()
