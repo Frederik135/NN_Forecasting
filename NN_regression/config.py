@@ -28,16 +28,14 @@ model_config = {
 }
 model = GRU(**model_config).to(device)             # Select RNN model
 
-"""
-model_config = {
+fcnn_config = {
     "seq_length": seq_length,                    # Number of time steps
     "num_features": num_features,                # Number of features
     "l_1": 64,                                   # Number of neurons in the first layer
     "l_2": 32,                                   # Number of neurons in the second layer
     "n_out": 1                                   # Output size
 }
-model = FCNN(**model_config).to(device)
-"""
+fcnn_model = FCNN(**model_config).to(device)
 
 architecture = str(model).split("(")[0]         # Selection of the RNN model
 start_date = '1980-01-01'                       # Start date of the complete dataframe
