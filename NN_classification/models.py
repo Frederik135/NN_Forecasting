@@ -3,10 +3,10 @@ import torch.nn as nn
 import torch.nn.functional as F
     
 class LSTM_classification(nn.Module):
-    def __init__(self, input_size, hidden_layer_size, num_layers, dropout_prob):
+    def __init__(self, input_size, hidden_layer_size, num_layers, dropout_prob, output_size):
         super(LSTM_classification, self).__init__()
         self.lstm = nn.LSTM(input_size, hidden_layer_size, num_layers, batch_first=True, dropout=dropout_prob)
-        self.linear = nn.Linear(hidden_layer_size, 3)
+        self.linear = nn.Linear(hidden_layer_size, output_size)
     def forward(self, input_seq):
         lstm_out, _ = self.lstm(input_seq)
         logits = self.linear(lstm_out[:, -1])

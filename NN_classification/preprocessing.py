@@ -38,7 +38,7 @@ stock_df = yf.download(stock_ticker, start=start_date, end=end_date)
 stock_df = stock_df[~((stock_df.index.month == 2) & (stock_df.index.day == 29))]
 features_df = pd.DataFrame(index=stock_df.index)
 
-stock_df['rel_change'] = stock_df['Close'].pct_change().fillna(0)
+stock_df.loc[:, 'rel_change'] = stock_df['Close'].pct_change().fillna(0)
 labels = stock_df['rel_change'].apply(lambda x: 2 if x > 0.005 else (0 if x < -0.005 else 1)).values
 
 # Features
@@ -53,7 +53,7 @@ def create_sequences(data, labels):
         y = labels[i + seq_length]
         xs.append(x)
         ys.append(y)
-    return np.array(xs), np.array(ys).reshape(-1, 1)
+    return np.array(xs), np.array(ys)
 
 total_length = len(features_df)
 split_idx = int(total_length * 0.8) + seq_length
@@ -88,8 +88,8 @@ test_dates = test_dates[seq_length:]
 
 # num_workers = 15 (home pc), max_workers = 10 (mac)
 train_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_train), torch.LongTensor(y_train)), batch_size=64, shuffle=True, 
-                                           num_workers=15, persistent_workers=True)
+                                           num_workers=10, persistent_workers=True)
 val_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_val), torch.LongTensor(y_val)), batch_size=64, shuffle=False, 
-                                         num_workers=15, persistent_workers=True)
+                                         num_workers=10, persistent_workers=True)
 test_loader = torch.utils.data.DataLoader(dataset=torch.utils.data.TensorDataset(torch.FloatTensor(X_test), torch.LongTensor(y_test)), batch_size=64, shuffle=False, 
-                                          num_workers=15, persistent_workers=True)
+                                          num_workers=10, persistent_workers=True)

@@ -11,8 +11,8 @@ stock_ticker = "KO"
 ticker = yf.Ticker(stock_ticker)
 company_name = ticker.info.get('longName', 'Company name not found')
 
-price_features = [1, 2, 4, 5, 6, 7]
-time_features = [8, 9, 10, 11, 12]
+price_features = [1]
+time_features = []
 num_features = len(price_features) + 2 * len(time_features)
 num_units = 50
 num_layers = 2
