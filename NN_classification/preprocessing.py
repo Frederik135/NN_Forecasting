@@ -38,7 +38,8 @@ stock_df = yf.download(stock_ticker, start=start_date, end=end_date)
 stock_df = stock_df[~((stock_df.index.month == 2) & (stock_df.index.day == 29))]
 features_df = pd.DataFrame(index=stock_df.index)
 
-stock_df.loc[:, 'rel_change'] = stock_df['Close'].pct_change().fillna(0)
+stock_df = stock_df.copy()
+stock_df['rel_change'] = stock_df['Close'].pct_change().fillna(0)
 labels = stock_df['rel_change'].apply(lambda x: 2 if x > 0.005 else (0 if x < -0.005 else 1)).values
 
 # Features

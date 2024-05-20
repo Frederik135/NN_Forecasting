@@ -3,8 +3,6 @@ import torch.nn as nn
 import yfinance as yf
 from models import LSTM_classification
 
-# Wichtigste Hyperparameter: number_units, num_layers, seq_length, learning_rate
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 stock_ticker = "KO"
@@ -15,8 +13,8 @@ price_features = [1]
 time_features = []
 num_features = len(price_features) + 2 * len(time_features)
 num_units = 50
-num_layers = 2
-dropout_prob = 0.3
+num_layers = 1
+dropout_prob = 0
 seq_length = 11                        # sequence length of sliding windows
 
 model_config = {
