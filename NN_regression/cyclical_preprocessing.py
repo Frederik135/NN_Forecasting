@@ -55,8 +55,10 @@ labels = np.insert(labels, 0, 0)
 
 # 1 Log returns
 log_returns = labels
-log_returns_std = standardize(log_returns)
-features_df["log_returns"] = log_returns_std
+log_returns_adj = adjust_to_three_sigma(log_returns)
+log_returns_adj_std = standardize(log_returns_adj)
+features_df["log_returns_adj_std"] = log_returns_adj_std
+
 
 
 """
@@ -167,9 +169,6 @@ epsilon = 1e-9
 df['log_paid_given_ratio'] = np.log((df['paid_volume'] + epsilon) / (df['given_volume'] + epsilon))
 # Standardize the new feature before adding to features DataFrame
 features_df['log_paid_given_ratio_std'] = standardize(df['log_paid_given_ratio'])
-
-
-
 """
 
 
