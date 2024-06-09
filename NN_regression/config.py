@@ -14,9 +14,10 @@ company_name = ticker.info.get('longName', 'Company name not found')
 price_features = [1, 2, 4, 5, 6, 7]
 time_features = [8, 9, 10, 11, 12]
 num_features = len(price_features) + 2 * len(time_features)
-num_units = 50
-num_layers = 1
-dropout_prob = 0
+num_units = 64
+num_layers = 2
+num_heads = 4
+dropout_prob = 0.1
 seq_length = 11
 
 
@@ -45,10 +46,10 @@ fcnn_model = FCNN(**model_config).to(device)
 # Transformer model
 model_config = {
     "input_size": num_features,
-    "hidden_size": 64,  # Adjust as necessary
-    "num_layers": 2,
-    "num_heads": 4,
-    "dropout": 0.1,
+    "hidden_size": num_units,
+    "num_layers": num_layers,
+    "num_heads": num_heads,
+    "dropout": dropout_prob,
     "output_size": 1
 }
 model = TransformerModel(**model_config).to(device)
@@ -56,7 +57,7 @@ model = TransformerModel(**model_config).to(device)
 architecture = str(model).split("(")[0]         # Selection of the RNN model
 start_date = '1980-01-01'                       # Start date of the complete dataframe
 end_date = '2024-01-01'                         # End date of the complete dataframe
-num_epochs = 80                                 # Number of epochs
+num_epochs = 50                                 # Number of epochs
 learning_rate = 0.0003                         # Learning rate of the optimizer
 
 wandb_config = {
